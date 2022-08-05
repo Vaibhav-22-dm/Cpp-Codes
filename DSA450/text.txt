@@ -1,0 +1,32 @@
+aaaabbaa
+mini = 0
+maxj = 7
+flagG = 0
+i = 0 -> S[i] = a
+    flag = 1
+    j = 7 -> S[j] = a
+        k = i = 0
+        when k = 2 -> flag = 0 -> break
+    flag  = 1
+    j = 6
+        k = 0
+        when k = 1 -> flag = 0 -> break
+    flag = 1
+    j = 5
+        k = 0
+        when k = 0 -> flag = 0 -> break
+    flag = 1
+    j = 4
+        k = 0
+        when k = 0 -> flag = 0 -> break
+    flag = 1
+    j = 3
+        k = 0
+        k = 1
+    flag = 1
+    maxj = 3
+    mini = 0
+    break;
+i = 1
+
+
