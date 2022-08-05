@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+int j = 0;
+
+void letterCasePermutation(string i, string o){
+    if(i.size()==0){
+        cout << o << endl;
+        j++;
+    } 
+    else{
+        if(isalpha(i[0])){
+            o.push_back(tolower(i[0]));
+            letterCasePermutation(i.substr(1, i.size()-1), o);
+            o.pop_back();
+            o.push_back(toupper(i[0]));
+            letterCasePermutation(i.substr(1, i.size()-1), o);
+        }
+        else{   
+            o.push_back(i[0]);
+            letterCasePermutation(i.substr(1, i.size()-1), o);
+        }
+    }
+    return;
+}
+
+int main(){
+    string S = "a3Cd55E";
+    letterCasePermutation(S, "");
+    cout << "j: " << j;
+    return 0;
+}
