@@ -1,0 +1,148 @@
+1. What is a data structure ?
+-> A data structure is a way to store and organize data in a computer, so that it can be used efficiently.
+
+2. What are Abstract data types ?
+-> Definition of a data structure but no implementation.
+
+3. Examples of standard Data Structures - 
+->  1. Linear data structures:
+        a. Array -> Continguous group of memory blocks alloted to store data of only one data type. Random access of data is possible due to contiguous memory. 
+        b. Linked List -> A) Singly Linked List B) Doubly Linked List -> Non continguous memory blocks alloted to store data and each block is linked with the next block using pointers. No random access of data available.
+        c. Stack -> Insertion and Deletion take place fron the same end(top). Last in First out principle.
+        d. Queue -> Insertion from rear end and deletion from front end. First in First out principle.
+        e. Heap -> 
+    
+    2. Non Linear Data Structures:
+        a. Tree -> Recursive Data Structure
+            A) Teminologies: 
+                1)  root node -> node with no parent
+                2)  children nodes 
+                3)  parent node 
+                4)  sibling node => node with same parents
+                5)  leaf node => node with no children
+                6)  internal child node
+                7)  cousin node => node with same grand parent but not same parent
+                8)  subtrees
+                9)  edge => link between two nodes
+                10) depth => depth of x node is defined as the length of path(no. of edes in the path) from root node to node x 
+                11) height => 
+                    -> height of node x is defined as the no. of edges in longest path from x to a leaf node
+                    -> height of tree = height of root node
+
+            B) If we can go from A to B, then A is ancestor of B and B is descendent of A.
+
+            C) A tree with N nodes has N - 1 edges.
+
+            D) Types of Trees:
+                1) Binary Tree -> Each node can only have atmost two childrens.
+
+            E) Applications:
+                1) Storing naturally heirarchical data. e.g. file system.
+                2) Organize data for quick search, insertion, deletion. e.g. Binary Search Trees.
+                3) Trie => dictionary
+                4) Network Routing algorithm
+        
+        b. Map
+        c. Graph
+
+***More on Binary Trees***
+1. Each node can have at most 2 children(left and right child)
+2. Strict/Proper binary tree -> each node can have either 2 or 0 children
+3. Complete Binary tree -> all levels except possibly the last are completely filled and all nodes are as left as possible
+4. Max no. of nodes at level i = 2^i ... i = 0, 1, 2, 3, ...
+5. Perfect Binary tree -> a complete binary tree having maximum possible nodes at last level also.
+6. Maximum no. of nodes in a binary tree with height h = 2^(h+1) - 1 = 2^(no. of levels) - 1
+7. If a perfect binary tree has n nodes then height h = log(n+1) - 1...(log is with base "2")
+8. If a complete binary tree has n nodes then height h = [log(n)]...(log is with base "2" and [x] = floor(x))
+9. If a binary tree has n nodes then min-height h_min = [log(n)] ...(log is with base "2" and [x] = floor(x))
+and max-height h_max = n - 1
+10. Balanced binary tree -> difference between height of left and right subtree for every node is not more than k(mostly 1) [diff = |h_left_subtree - h_right_subtree|]
+11. Height of an empty tree = -1
+12. Height of tree with 1 node = 0
+13. We can implement binary tree using:
+    a) dynamically created nodes -> most common way
+    b) arrays - typically used for complete binary trees =>
+        A. In complete binary trees implemented using arrays ->
+            for node at index i in array:-
+                left-child-index = 2i+1
+                right-child-index = 2i+2
+        B. Heaps are implemented using arrays
+
+
+***Binary Search Tree***
+1. A binary tree in which for each node, value of all the nodes in left subtree is lesser or equal and value of all the nodes in right subtree is greater
+2. In BST, search, insert and delete operations are of order 'log(n)'...(log is with base 2)
+
+**Tree Traversal Algorithms**
+Tree Traversal -> Process of visiting each node in the tree exactly once in some order.
+visit -> Reading/Processing data in a node.
+Tree Traversal Algorithms :
+    1. Breadth-first -> visiting all nodes at single level first. 
+                     -> Time Compelexity: O(n)
+                     -> Space-complexity: O(1) => best(Linked List like Tree), O(n) => worst(perfect binary tree --> O(n/2)) 
+    2. Depth-first   -> visiting the subtree of each child first. 
+                     -> Time - Complexity: O(n)
+                     -> Space - Complexity: O(h) ...h = height of tree = n(worst) or log(n) (best)
+                     Three types: 
+                        a. <root><left subtree><right subtree> => Preorder
+                        b. <left subtree><root><right subtree> => Inorder
+                        c. <left subtree><right subtree><root> => PostOrder
+    
+
+***Graphs***
+1. Definition - A graph G is an ordered pair of a set V of vertices and a set E of edges. G = (V, E)
+----- ordered pair: (a,b)!=(b,a)
+----- unordered pair: {a, b} == {b, a}
+2. Egdes are the lines joining the vertices.
+3. Types of edges -> 
+    a) directed -> unidirectional connection  
+    b) undirected -> bidirectional connection 
+4. Ex. V = {v1, v2, v, v4, v5, v6, v7, v8}
+       E = {{v1, v2}, {v1, v3}, {v1, v4}, {v2, v5}, {v2, v6}, {v3, v7}, {v4, v8}, {v7, v8}, {v5, v8}, {v6, v8} }
+
+5. A graph with all directed edges is called a directed graph or a Digraph. Ex. World Wide Web
+6. A graph with all undirected edges is called an undirected graph. Ex. Social Network
+7. A graph in which edges carry different weights is called a Weighted Graph. Ex. Intercity road network
+8. A graph in which each edge has same weight or no weight is called a unweighted graph. Ex. Social Network 
+9. An edge with same start and end vertices is called as self loop. Ex. a link in a webpage which links to the same page.
+10. An edge that occurs more than once in a graph between two vertices is called a multiedge. Ex. Different flights between same pair of cities.
+11. A graph with no self loops and multiedges is called a simple graph.
+12. In a simple directded graph having n vertices there can be maximum n*(n-1) edges.
+13. In a simple undirectded graph having n vertices there can be maximum n*(n-1)/2 edges.
+14. A graph is called dense if the no. of edges present is close to maximum possible no. of edges.
+15. A graph is called parse if the no. of edges present is far less than the maximum possible no. of edges.
+16. Path/Walk - A sequence of vertices where each adjacent pair is connected by an edge.
+---path mostly means simple path but a walk means a general path and not a simple path.
+17. A path is called a simple path if no vertices(and thus no edges) are repeated.
+18. Trail - a walk in which no edges are repeated
+19. Strongly connected Graphs: A directed graph in which there is a path from any vertex to any other vertex.
+20. Undirected graphs are called connected graphs.
+21. A walk is called a closed walk if it starts and ends at same vertex and the no. of edges walked should be greater than zero.
+22. Simple Cycle/ Cycle- a closed walk in which there is no repetition other than start and end.
+23. Acyclic Graph - a graph with no cycle. Ex. undirected tree, Directed acyclic graph(DAG)
+24. Graph Implementation -
+    a. Edge List:
+        -> Vertex List : List of vertices in the graph 
+        -> Edge List : List of edges where each edge is defined by a set of 3 pointers where one pointer points to the start vertex, one points to the end vertex and one pointer stores the weight of that edge.
+        This is the simplest was of implementing Graph data structure but it has large time complexity. So this is not the most efficient way of implementing Graph.
+        This method is used in sparse graphs.
+
+    b. Adjacency Matrix : 
+        -> List of vertices : same as above.
+        -> Adjacency Matrix : A 2D array is used to store edges. The size of the array is no. of vertices * no. of vertices.
+        If the graph is weighted then cell corresponding to ith row and jth column with data = 1 corresponds to the presence of an edge between ithe vertex and jth vertex. In weighted graph we store the weight of the edge instead of 1. In both cases data = 0 means absence of an edge. Some times we choose data = infinity to represent absence of edge in weighted graphs. 
+        Space complexity = O(V^2) ... V = no. of vertices
+        Time complexity of checking a connection = O(1)
+        Time complexity of finding adjacent nodes = O(V) ... V = no. of vertices
+        This method is used when the graph is dense.
+
+    c. Adjacency List:
+        -> List of vertices : same as above.
+        -> Adjacency List : A list of lists/tree is used to store edges.  ith list in the Adjacency list is a list of nodes to which ith node has a connection. These lists can be an array, linked list, BST, etc.
+        This method is time and space efficient.
+        Space complexity = O(E) ... E = no. of edges
+        Time complexity of checking a connection using linear search = O(V) ... V = no. of vertices
+        Time complexity of checking a connection using binary search(if list is sorted) = O(logV) ... V = no. of vertices ... log is with base 2
+        Time complexity of finding adjacent nodes = O(V) ... V = no. of vertices
+        Time complexity of creating a new edge if lists are implemented using linked list = O(V) ... V = no. of vertices
+        Time complexity of creating a new edge if lists are implemented using BST = O(logV) ... V = no. of vertices ... log is with base 2
